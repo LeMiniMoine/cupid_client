@@ -1,0 +1,19 @@
+{
+    "name": "cupido_client",
+    "version": "0.1.0",
+    "main": "./main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "devDependencies": {
+        "angular": "^1.5.3",
+        "body-parser": "^1.15.0",
+        "chokidar": "^1.4.3",
+        "electron-prebuilt": "^0.37.5",
+        "express": "^4.13.4",
+        "lodash": "^4.9.0",
+        "ngrok": "^2.1.7",
+        "node-rest-client": "^1.8.0",
+        "simple-git": "^1.32.0"
+    }
+}
