@@ -26,6 +26,7 @@ chokidar.watch('.', {ignored: /^\.idea|^\.git/gm}).on('change', function (path, 
             return file.file
         });
 
+
         var changes = {
             user: user,
             files: files
@@ -46,7 +47,7 @@ chokidar.watch('.', {ignored: /^\.idea|^\.git/gm}).on('change', function (path, 
 ngrok.connect(
     {
         proto: 'http',
-        addr: 5055
+        addr: 7077
     },
     function (err, url) {
         args.data = {
@@ -65,15 +66,18 @@ ngrok.connect(
             restApp.post('/', function (req, res) {
                 getMessageFromCisco(req.body.data.id);
             });
-            restApp.listen(5055);
-            console.log('Listening on port 5055...');
+            restApp.listen(7077);
+            console.log('Listening on port 7077...');
         });
     });
 
 var getMessageFromCisco = function (messageId) {
     client.get('https://api.ciscospark.com/v1/messages/'.concat(messageId), args, function (data, response) {
         var receivedChanges = JSON.parse(data.text);
-        console.log(receivedChanges);
+        //console.log(receivedChanges);
+        if(data.personEmail == 'taffsmania@hotmail.com') {
+            console.log(data.text);
+        }
     })
 };
 
